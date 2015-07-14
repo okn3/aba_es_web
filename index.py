@@ -11,6 +11,7 @@ def root():
 
 @route('/<id:int>')
 def detect(id):
+
     #処理書く
     
     if id == 1:
@@ -21,9 +22,5 @@ def detect(id):
         msg="なし"
     return template('input',msg=msg)
 
-
-"""
-データ取得のプラグラムを書く
-"""
 
 run(host='localhost', port=8080)
