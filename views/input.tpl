@@ -3,6 +3,9 @@
     <title>Lifilm</title>
     <!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
     <style>
+    img{
+    margin:30px;
+    }
     button{
     width:200px;
     height:100px;
@@ -15,10 +18,10 @@
     border-radius: 15px;
     }
     button#b1{
-    background-color:#ff9933;
+    background-color:#00BCD4;
     }
     button#b2{
-    background-color:#00BCD4;
+    background-color:#ff9933;
     }
     button#ok{
     background-color:#FF367F;
@@ -41,11 +44,12 @@
     <button type="button" id="b1" onclick="Select(this, 1);" >尿</button>
     <button type="button" id="b2" onclick="Select(this, 2);" >便</button>
     <button type="button" id="b3" onclick="Select(this, 3);" >なし</button>
-    <br>
-    <button type="button" id="ok" onclick="ButtonOK()">OK</button>
-    <div id="msg"  style="background-color:#FFE0B2; margin:0 500px;">
+    <br><button type="button" id="ok" onclick="ButtonOK()">OK</button>
+<!--
+<div id="msg"  style="background-color:#FFE0B2; margin:0 500px;">
       <p style="color:#fff;">{{msg}}<p>
     </div>
+    -->
   </body>
   <script language="javascript" type="text/javascript">
     var selectedId; 
@@ -61,7 +65,7 @@
     
     function ButtonOK(){
       alert(selectedId);
-      location.href="detect/"+selectedId; //test
+      location.href=selectedId; //test
       selectedId = 0;
       var ok_btn = document.getElementById("ok");
       ok_btn.style.visibility = "hidden";
