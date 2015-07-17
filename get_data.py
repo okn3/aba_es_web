@@ -31,17 +31,11 @@ else:
 # コマンド $ls /dev/tty.* で mbed の名前を見れるので、ボーレートは適宜変えること
 # Windows未対応
 com = serial.Serial('/dev/tty.usbmodem1422', baudrate)
-
-
 day_info = datetime.datetime.today()
-csv_name = "lifilm" + '_' + day_info.year
-                    + '_' + day_info.month
-                    + '_' + day_info.day
-                    + '_' + day_info.minute
-                    + '_' + day_info.second
-                    + '_' + argv[1]
-                    + ".csv"
-
+# 元プログラム
+#csv_name = "lifilm_" + day_info.year + '_' + day_info.month + '_' + day_info.day + '_' + day_info.minute + '_' + day_info.second + '_' + argv[1] + ".csv"
+# python2対応
+csv_name = "lifilm" + '_' + str(day_info.year) + '_' + str(day_info.month) + '_' + str(day_info.day) + '_' + str(day_info.minute) + '_' + str(day_info.second) + '_' + str(argv[1]) + ".csv"
 while True:
     time.sleep(5)
     com.write('a')                      # データ送信要求 ('a' である必要性は無し)
