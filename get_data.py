@@ -72,7 +72,4 @@ def get_data():
 
         if detect_id != 0:
             send_data(0)
-
-        print "kitemasu"
-
-
+        print "logging..."

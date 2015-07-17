@@ -12,22 +12,16 @@ def main():
         return template('input',msg="")
 
     @route('/<id:int>')
-    def detect(id):
-
-        #処理書く
-        
-        if id == 1:
-            msg="尿"
+    def detect(id)
+        send_data(id)
+ """if id == 1:
             send_data(1)
         elif id == 2:
-            msg="便"
             send_data(2)
         else:
-            msg="なし"
             send_data(3)
-        return template('input',msg=msg)
-
-
+            """
+        return template('input')
     run(host='localhost', port=8080)
 
 index_th = threading.Thread(target=main, name = "intdex_th")
