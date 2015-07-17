@@ -38,7 +38,14 @@
     }
     #ok:hover{
     background-color: #FF0461;
-    }   
+    }
+    #exit{
+    width:80px;
+    height:20px;
+    font-size:10px;
+    float:right;
+    margin:10px;
+    }
     </style>
   </head>
   <body style="text-align:center">
@@ -48,25 +55,36 @@
     <button type="button" id="b2" onclick="Select(this, 2);" >便</button>
     <button type="button" id="b3" onclick="Select(this, 3);" >なし</button>
     <br><button type="button" id="ok" onclick="ButtonOK()">OK</button>
+    <br><button type="button" id="exit" onclick="Exit()">システム終了</button>
   </body>
   <script language="javascript" type="text/javascript">
-    var selectedId; 
+    var selectedId;
+    var msg;
     var ok_btn = document.getElementById("ok");
-//    var nyo_btn = document.getElementById("b1");
-//    var ben_btn = document.getElementById("b2");
-//    var non_btn = document.getElementById("b3");
+
     function Select(obj, id) {
-//      obj.style.backgroundColor = "#FFD700";
       selectedId = id;
       ok_btn.style.visibility = "visible";
+      if(selectedId == 1){
+        msg = "尿";
+      }else if(selectedId == 2){
+        msg = "便";
+      }else{
+        msg = "無し";
+      }
     } 
     
     function ButtonOK(){
-      alert("完了しました\n ボタン："+selectedId);
+      alert( msg + "ボタンが押されました。");
       location.href=selectedId; //test
       selectedId = 0;
       var ok_btn = document.getElementById("ok");
       ok_btn.style.visibility = "hidden";
+    }
+    
+    function Exit(){
+      alert("システムを終了します。");
+      location.href = "/exit";
     }
   </script>
 </html>

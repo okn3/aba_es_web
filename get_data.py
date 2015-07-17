@@ -56,8 +56,7 @@ def get_data():
             dt = unixTime_new - unixTime_old
 
             # csvへの書き込み行
-            row = timeStamp + ',' + str(dt)  + ',' + data[0] + ',' + data[1] + ',' + data[2] + ',' + data[11] + ',' + data[16] + ',' + str(detect_id) + '\n'
-
+            row = timeStamp + ',' + str(dt)  + ',' + data[0] + ',' + data[1] + ',' + data[2] + ',' + data[11] + ',' + str(detect_id) + '\n'
             try:
                 fp1 = open(csv_name, 'a')
                 fp1.write(row)
