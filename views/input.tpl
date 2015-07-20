@@ -55,6 +55,7 @@
     <button type="button" id="b2" onclick="Select(this, 2);" >便</button>
     <button type="button" id="b3" onclick="Select(this, 3);" >なし</button>
     <br><button type="button" id="ok" onclick="ButtonOK()">決定</button>
+    <p>前回の対応：{{time}}</p>
     <br><button type="button" id="exit" onclick="Exit()">システム終了</button>
   </body>
   <script language="javascript" type="text/javascript">
@@ -75,9 +76,9 @@
     } 
     
     function ButtonOK(){
-      check = confirm(msg + "でよろしいですか？");
+      check = confirm(" [ " + msg + " ] が選択されました。\n\n よろしいですか？");
       if ( check == true ){
-          location.href=selectedId; //test
+          location.href=selectedId;
       }
       selectedId = 0;
       var ok_btn = document.getElementById("ok");
@@ -85,8 +86,10 @@
     }
     
     function Exit(){
-      alert("システムを終了します。");
-      location.href = "/exit";
+      check = confirm("システムを終了します。\n\n よろしいですか？");
+      if ( check == true){
+        location.href = "/exit";
+      }
     }
   </script>
 </html>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from bottle import route, run, template, static_file
 from get_data import send_data, get_data
-import threading, os
+import threading, os, time
 def main():
     @route('/test')
     def test():
@@ -9,12 +9,13 @@ def main():
 
     @route('/')
     def root():
-        return template('input')
+        return template('input',time="")
 
     @route('/<id:int>')
     def detect(id):
         send_data(id)
-        return template('input')
+        log_time = time.ctime()
+        return template('input',time=log_time)
 
     @route('/exit')
     def exit():
