@@ -54,7 +54,7 @@
     <button type="button" id="b1" onclick="Select(this, 1);" >尿</button>
     <button type="button" id="b2" onclick="Select(this, 2);" >便</button>
     <button type="button" id="b3" onclick="Select(this, 3);" >なし</button>
-    <br><button type="button" id="ok" onclick="ButtonOK()">OK</button>
+    <br><button type="button" id="ok" onclick="ButtonOK()">決定</button>
     <br><button type="button" id="exit" onclick="Exit()">システム終了</button>
   </body>
   <script language="javascript" type="text/javascript">
@@ -75,8 +75,10 @@
     } 
     
     function ButtonOK(){
-      alert( msg + "ボタンが押されました。");
-      location.href=selectedId; //test
+      check = confirm(msg + "でよろしいですか？");
+      if ( check == true ){
+          location.href=selectedId; //test
+      }
       selectedId = 0;
       var ok_btn = document.getElementById("ok");
       ok_btn.style.visibility = "hidden";
